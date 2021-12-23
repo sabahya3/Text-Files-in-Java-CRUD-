@@ -182,7 +182,11 @@ public class Main {
         }
     }
 
-public  static  String filename="database.txt";
+    // i just changed file name from database.txt to database.csv
+    // because i want to write in csv file not text file
+    // if you want to write in text file like the video on youtube
+    // just change database.csv to database.txt
+public  static  String filename="database.csv";
 
     public static void main(String[] args) {
         displayServices();
