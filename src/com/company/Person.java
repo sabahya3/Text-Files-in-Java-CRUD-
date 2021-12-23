@@ -2,11 +2,11 @@ package com.company;
 
 public class Person {
     // attributes
-    private String id;
-    private String name;
-    private  String age;
-    private  String job;
-    private  String address;
+    public String id;
+    public String name;
+    public  String age;
+    public  String job;
+    public   String address;
 
     Person(String id , String name, String age,String job, String address){
         this.id=id;
@@ -18,7 +18,8 @@ public class Person {
     }
 
     public  String getUserData(){
-return  "User Id : " +id+ " User name : " + name +" Age : "+ age + " Job :"+ job+ " address : " +address;
+
+return   id+"," + name +"," +age + ","+job+"," +address;
     }
 
 
