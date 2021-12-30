@@ -1,3 +1,1 @@
-User Id : 12 User name : ahmed Age : 20 Job :jkachdea address : ahdsk
-User Id : 3 User name : noor Age : 30 Job :laksdksal address : dassac
-User Id : 1$37 User name : mohammed Age : 40 Job :akjldhalk address : adefvdas
+ahmedahmedahmedahmedahmed Patient name :manal Patient id :12345 age :30  medical_diagnosis :cancer  address :tanta
