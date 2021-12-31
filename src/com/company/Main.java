@@ -22,11 +22,21 @@ public class Main {
     public static void main(String[] args) {
 
 
+      createNewFileWithHeaders();
+        displayServices();
+
+
+    }
+
+    // methods
+
+    public static void createNewFileWithHeaders(){
         File database=new File(filename);
 
         try {
 
             if( database.createNewFile()==true){
+
                 try {
                     FileWriter writer=new FileWriter(filename,true);
                     writer.append("User ID"+","+"User Name"+","+"Age"+","+"Job"+","+"Address");
@@ -37,7 +47,6 @@ public class Main {
                     System.out.println(e);
                 }
 
-
             }
             else {
 
@@ -46,12 +55,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        displayServices();
-
-
     }
-
-   // methods
 
     public static void createAddNewPerson( Scanner input){
         System.out.println("Please Enter Id  ");
@@ -117,87 +121,87 @@ public class Main {
             System.out.println("done!");
         }}
 
-        public static void updateRecord(ArrayList<String>arrayList,Scanner input){
-            try {
-                BufferedReader reader=new BufferedReader(new FileReader(filename));
-                System.out.println("please enter any key to update the record");
-                String searchKey=input.next();
-                String line;
-                while ((line=reader.readLine())!=null){
-                    if(   line.contains(searchKey)){
-                        System.out.println("enter the text you want to change");
-                        String oldValue=input.next();
-                        System.out.println("enter the new text you want to change");
-                        String newValue=input.next();
-                        arrayList.add(line.replace(oldValue,newValue));
+    public static void updateRecord(ArrayList<String>arrayList,Scanner input){
+        try {
+            BufferedReader reader=new BufferedReader(new FileReader(filename));
+            System.out.println("please enter any key to update the record");
+            String searchKey=input.next();
+            String line;
+            while ((line=reader.readLine())!=null){
+                if(   line.contains(searchKey)){
+                    System.out.println("enter the text you want to change");
+                    String oldValue=input.next();
+                    System.out.println("enter the new text you want to change");
+                    String newValue=input.next();
+                    arrayList.add(line.replace(oldValue,newValue));
 
 
-                    }else {
-                        arrayList.add(line);
-                    }
-
+                }else {
+                    arrayList.add(line);
                 }
 
-
-            }catch (Exception e){
-                System.out.println(e);
             }
 
-            try {
-                FileWriter writer=new FileWriter(filename);
-                for(int i=0;i<arrayList.size();i++){
-                    writer.append(arrayList.get(i));
-                    writer.append("\n");
-                }
-                writer.close();
-            }catch (Exception e){
-                System.out.println(e);
-            }
 
+        }catch (Exception e){
+            System.out.println(e);
         }
-        public static void getUserById(Scanner input){
-            try {
-                BufferedReader reader=new BufferedReader(new FileReader(filename));
-                System.out.println("please enter any key to get the record");
-                String searchKey=input.next();
-                String line;
-                while ((line=reader.readLine())!=null){
-                    if(   line.contains(searchKey)){
-                        System.out.println(line);
 
-                    }
-
-                }
-
-
-            }catch (Exception e){
-                System.out.println(e);
+        try {
+            FileWriter writer=new FileWriter(filename);
+            for(int i=0;i<arrayList.size();i++){
+                writer.append(arrayList.get(i));
+                writer.append("\n");
             }
-
-
+            writer.close();
+        }catch (Exception e){
+            System.out.println(e);
         }
-        public static void getAllPersons(){
 
-            try {
-                BufferedReader reader=new BufferedReader(new FileReader(filename));
-
-
-                String line;
-                while ((line=reader.readLine())!=null){
-
+    }
+    public static void getUserById(Scanner input){
+        try {
+            BufferedReader reader=new BufferedReader(new FileReader(filename));
+            System.out.println("please enter any key to get the record");
+            String searchKey=input.next();
+            String line;
+            while ((line=reader.readLine())!=null){
+                if(   line.contains(searchKey)){
                     System.out.println(line);
 
                 }
 
-            }catch (Exception e){
-                System.out.println(e);
             }
 
 
-
-
-
+        }catch (Exception e){
+            System.out.println(e);
         }
+
+
+    }
+    public static void getAllPersons(){
+
+        try {
+            BufferedReader reader=new BufferedReader(new FileReader(filename));
+
+
+            String line;
+            while ((line=reader.readLine())!=null){
+
+                System.out.println(line);
+
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+
+
+
+
+    }
 
 
 
@@ -219,17 +223,17 @@ public class Main {
             int x=  input.nextInt();
             if(x==0) break;
             else if(x==1){
-               createAddNewPerson(input);
+                createAddNewPerson(input);
             }
             else  if(x==2){
 
-            deleteRecordById(arrayList,input);
+                deleteRecordById(arrayList,input);
             }
             else  if(x==3){
-            updateRecord(arrayList,input);
+                updateRecord(arrayList,input);
             }
             else if(x==4){
-          getUserById(input);
+                getUserById(input);
 
             }
             else if(x==5){
